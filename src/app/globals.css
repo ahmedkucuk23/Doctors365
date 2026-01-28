@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --primary: 165 100% 36%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 142.1 76.2% 36.3%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --border: 214.3 31.8% 91.4%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-primary-600 px-8 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:bg-primary-700 hover:shadow-lg hover:shadow-primary-600/25 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border-2 border-primary-600 bg-transparent px-8 py-3 text-base font-semibold text-primary-600 transition-all duration-300 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-white {
+    @apply inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-semibold text-primary-700 transition-all duration-300 hover:bg-gray-50 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600;
+  }
+
+  .section-padding {
+    @apply px-4 py-20 sm:px-6 lg:px-8 lg:py-28;
+  }
+
+  .container-custom {
+    @apply mx-auto max-w-7xl;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent;
+  }
+
+  .card {
+    @apply rounded-2xl bg-white p-6 shadow-lg shadow-gray-200/50 transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/60;
+  }
+
+  .card-hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-white/20 bg-white/80 p-6 shadow-lg backdrop-blur-lg;
+  }
+
+  .nav-link {
+    @apply relative text-gray-600 transition-colors duration-200 hover:text-primary-600;
+  }
+
+  .nav-link::after {
+    @apply absolute -bottom-1 left-0 h-0.5 w-0 bg-primary-600 transition-all duration-300 content-[''];
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .stat-card {
+    @apply flex flex-col items-start;
+  }
+
+  .stat-number {
+    @apply font-display text-4xl font-bold text-gray-900 lg:text-5xl;
+  }
+
+  .stat-label {
+    @apply mt-1 text-sm text-gray-500;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl;
+  }
+
+  .section-subtitle {
+    @apply mt-4 text-lg text-gray-600 sm:text-xl;
+  }
+
+  .feature-icon {
+    @apply flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-100 text-primary-600;
+  }
+
+  .step-number {
+    @apply flex h-12 w-12 items-center justify-center rounded-full bg-primary-600 font-display text-xl font-bold text-white;
+  }
+
+  .tab-button {
+    @apply rounded-xl px-6 py-3 text-sm font-medium transition-all duration-200;
+  }
+
+  .tab-button-active {
+    @apply bg-primary-600 text-white shadow-lg shadow-primary-600/30;
+  }
+
+  .tab-button-inactive {
+    @apply bg-gray-100 text-gray-600 hover:bg-gray-200;
+  }
+}
+
+@layer utilities {
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-mesh {
+    background: 
+      radial-gradient(at 40% 20%, rgba(0, 184, 148, 0.08) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgba(0, 184, 148, 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, rgba(0, 184, 148, 0.05) 0px, transparent 50%),
+      radial-gradient(at 80% 50%, rgba(0, 204, 165, 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(0, 184, 148, 0.08) 0px, transparent 50%);
+  }
+
+  .blob {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00b894;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #009a7c;
+}
