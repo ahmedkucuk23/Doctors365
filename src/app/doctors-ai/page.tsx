@@ -32,6 +32,7 @@ import {
   LogOut,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 // Mock conversation data
 const mockConversations = [
@@ -190,7 +191,6 @@ function MembershipModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
 }
 
 export default function DoctorsAI() {
-  const router = useRouter();
   const [messages, setMessages] = useState<Array<{id: number; type: string; content: string; time: string}>>([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -306,11 +306,11 @@ export default function DoctorsAI() {
         
         {/* Header with Logo */}
         <header className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-6 py-4">
-          <a href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <img src="/logo.png" alt="Doctors 365" className="h-8 w-auto brightness-0 invert" />
-          </a>
+          </Link>
           <div className="flex items-center gap-3">
-            <a href="/" className="text-sm text-gray-400 hover:text-white transition-colors">Home</a>
+            <Link href="/" className="text-sm text-gray-400 hover:text-white transition-colors">Home</Link>
             <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">Find Doctor</a>
             {isLoggedIn ? (
               <>
@@ -502,9 +502,9 @@ export default function DoctorsAI() {
           >
             {/* Sidebar Header */}
             <div className="flex h-16 items-center justify-between border-b border-white/10 px-4">
-              <a href="/" className="flex items-center gap-3">
+              <Link href="/" className="flex items-center gap-3">
                 <img src="/logo.png" alt="Doctors 365" className="h-8 w-auto brightness-0 invert" />
-              </a>
+              </Link>
               <button
                 onClick={() => setShowSidebar(false)}
                 className="rounded-lg p-2 text-gray-500 hover:bg-white/5 lg:hidden"

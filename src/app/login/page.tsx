@@ -11,13 +11,13 @@ import {
   Eye,
   EyeOff,
   ChevronRight,
-  Check,
   UserCircle,
   Briefcase,
   Phone,
   Building,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type AccountType = "doctor" | "patient" | null;
 type AuthMode = "login" | "signup";
@@ -66,9 +66,9 @@ export default function LoginPage() {
     <div className="min-h-screen bg-[#0a1210] flex flex-col">
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-4 border-b border-white/10">
-        <a href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <img src="/logo.png" alt="Doctors 365" className="h-8 w-auto brightness-0 invert" />
-        </a>
+        </Link>
         <button
           onClick={handleBack}
           className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
@@ -381,7 +381,7 @@ export default function LoginPage() {
               <p className="text-center text-sm text-gray-500 mt-6">
                 {authMode === "login" ? (
                   <>
-                    Don't have an account?{" "}
+                    Don&apos;t have an account?{" "}
                     <button
                       onClick={() => setAuthMode("signup")}
                       className="text-[#00b894] hover:underline"
